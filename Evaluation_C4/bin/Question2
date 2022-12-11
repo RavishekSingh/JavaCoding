@@ -1,0 +1,18 @@
+Explain about Hashcode and Equals Method.
+
+
+- To find the object uniqueness we use equals() and hashCode().
+
+For two objects equals() will return true then their hashCode value 
+should return the same value for the object.
+
+equals() compares the equality of two Objects.
+
+e.g;  public boolean equals(Object obj)
+
+
+hashCode returns the value as an integer.Ii's value is mostly used in
+hashing purpose like HashMap, HashSet, HashTable.
+This method must be overridden in every class where overrides equals()method.
+
+e.g;  public int hashCode()

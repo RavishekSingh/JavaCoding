@@ -1,0 +1,11 @@
+Explain the difference between abstract class and interface.
+
+Abstract Class - An abstract class can contain both abstract and non-abstract methods.
+                 An abstract class can have all four; static, non-static and final, non-final variables.
+                The keyword ‘extend’ is used to extend an abstract class
+                It has class members like private and protected, etc.
+                
+Interfce -   Interface contains only abstract methods.
+             Only final and static variables are used.
+             The keyword implement is used to implement the interface.
+             It has class members public by default.                
