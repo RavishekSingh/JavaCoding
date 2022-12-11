@@ -1,0 +1,35 @@
+Write down some predefined Functional interfaces in the java library at least 4
+interfaces, with their methods.
+
+These interfaces belongs to "java.util.function" package.
+
+-Predicate:It is a functional interface which represents a predicate (boolean-valued function) 
+ of one argument. It is defined in the java.util.function package and contains test() a functional method.
+
+   Predicate<Integer> pr = a -> (a > 18); // Creating predicate  
+   System.out.println(pr.test(10));    // Calling Predicate method    
+
+
+-Supplier: It represents a function which does not take in any argument but produces a value of type T.
+
+      Supplier<Double> randomValue = () -> Math.random();
+         // Print the random value using get()
+      System.out.println(randomValue.get());
+
+
+-Consumer:It contains an abstract accept() and a default andThen() method. It can be used as the assignment
+ target for a lambda expression or method reference.
+  The Consumer Interface accepts a single argument and does not return any result.
+
+               // Consumer to display a number
+        Consumer<Integer> display = a -> System.out.println(a);
+                // Implement display using accept()
+        display.accept(10);
+
+
+-Function:It is used to refer method by specifying type of parameter. It returns a result back to the referred function.
+
+               // Function interface referring to a method  
+        Function<String, String> fun = FunctionInterfaceExample::show;  
+                // Calling Function interface method  
+        System.out.println(fun.apply("Peter"));  

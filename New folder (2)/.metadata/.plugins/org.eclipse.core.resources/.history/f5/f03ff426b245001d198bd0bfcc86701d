@@ -1,0 +1,73 @@
+2) When should one use Maven?
+
+
+-Maven is a powerful project management tool that is based on POM (project object model). 
+ It is used for projects build, dependency and documentation.
+ Maven is chiefly used for Java-based projects, helping to download dependencies, which 
+ refers to the libraries or JAR files. The tool helps get the right JAR files for each 
+ project as there may be different versions of separate packages.
+ 
+ 
+ 
+ 3) Explain the core concepts of Maven.?
+ 
+ 
+ -Maven is based on the concept of project object model (POM) file. POM is an XML file which
+  contains project resources like source code, test code and dependencies (external JARs) etc.
+  The POM file should be in the project’s root directory.
+  
+  Maven Core Concepts:
+
+  POM Files
+  Build Life Cycles, Phases and Goals
+  Dependencies and Repositories
+  Build Plugins
+  Build Profiles
+  
+  
+  
+ 4) Explain about the basic properties of pom.xml file.?
+ 
+ 
+ -The pom. xml file contains information of project and configuration information for the maven
+  to build the project such as dependencies, build directory, source directory, test source directory,
+  plugin, goals etc. Maven reads the pom. xml file, then executes the goal.
+  
+  
+  
+ 5) What are the different phases of the default life cycle?
+ 
+ 
+ - The default lifecycle comprises of the following phases :
+
+ *validate - validate the project is correct and all necessary information is available
+ *compile - compile the source code of the project
+ *test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+ *package - take the compiled code and package it in its distributable format, such as a JAR.
+ *verify - run any checks on results of integration tests to ensure quality criteria are met
+ *install - install the package into the local repository, for use as a dependency in other projects locally
+ *deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects. 
+ 
+ 
+ 
+ 6) What are the different types of Maven repositories?
+ 
+ 
+ -A maven repository is a directory of packaged JAR file with pom.xml file. Maven searches for dependencies in the repositories.
+  There are 3 types of maven repository:
+
+ *Local Repository
+ *Central Repository
+ *Remote Repository
+
+ Maven searches for the dependencies in the following order:
+
+ Local repository then Central repository then Remote repository.
+ 
+ 
+ 
+ 7)Explain what a Primary key, Candidate Key, Prime Attributes, and Non-prime Attributes is.?
+ 
+ 
+ -
+ 

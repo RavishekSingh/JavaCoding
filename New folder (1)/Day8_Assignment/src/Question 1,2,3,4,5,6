@@ -1,0 +1,79 @@
+1)What do you mean by Multithreading? Why is it important?
+
+-Multithreading is a function of the CPU that permits multiple 
+ threads to run independently while sharing the same process resources.
+ A thread is a conscience sequence of instructions that may run in the 
+ same parent process as other threads.
+ 
+ Multithreading saves time as you can perform multiple operations together.
+ The threads are independent, so it does not block the user to perform multiple 
+ operations at the same time and also, if an exception occurs in a single thread,
+ it does not affect other threads.
+ 
+ 
+ 2)What are the benefits of using Multithreading?
+ 
+ 
+ -Improved throughput. Many concurrent compute operations and I/O requests within a single process.
+  Simultaneous and fully symmetric use of multiple processors for computation and I/O
+  Improved server responsiveness. Large or complex requests or slow clients don't block other requests 
+  for service. The overall throughput of the server is much greater.
+  Minimized system resource usage. Threads impose minimal impact on system resources. Threads require less 
+  overhead to create, maintain, and manage than a traditional process.
+  
+  
+  3)Differentiate between process and thread.
+  
+  -Process:A process is a program under execution i.e an active program.Processes require more time for context
+   switching as they are more heavy.Processes are totally independent and don’t share memory.Processes require more 
+   resources than threads.
+   
+  -Thread:A thread is a lightweight process that can be managed independently by a scheduler.Threads require less time 
+   for context switching as they are lighter than processes.A thread may share some memory with its peer threads.
+   Communication between threads requires less time than between processes .
+   
+   
+  4)What are the different states of a thread, or what is thread lifecycle?
+  
+  
+  -A thread goes through various stages in its lifecycle. For example, a thread 
+  is born, started, runs, and then dies. The following diagram shows the complete 
+  life cycle of a thread.
+  
+  
+  New − A new thread begins its life cycle in the new state. It remains in this state until the program starts the thread. 
+  It is also referred to as a born thread.
+  
+ Runnable − After a newly born thread is started, the thread becomes runnable. A thread in this state is considered to be 
+ executing its task.
+ 
+ Waiting − Sometimes, a thread transitions to the waiting state while the thread waits for another thread to perform a task.
+  Thread transitions back to the runnable state only when another thread signals the waiting thread to continue executing.
+  
+ Timed Waiting − A runnable thread can enter the timed waiting state for a specified interval of time. A thread in this state
+  transitions back to the runnable state when that time interval expires or when the event it is waiting for occurs.
+  
+ Terminated (Dead) − A runnable thread enters the terminated state when it completes its task or otherwise terminates.
+ 
+ 
+ 5)Differentiate between the Thread class and Runnable interface for creating a Thread?
+ 
+ 
+ -There are two ways to create a new thread of execution. One is to declare a class to be 
+  a subclass of the Thread class. This subclass should override the run method of the Thread 
+  class. An instance of the subclass can then be allocated and started.
+  
+  The other way to create a thread is to declare a class that implements the Runnable interface.
+  That class then implements the run method. An instance of the class can then be allocated, passed 
+  as an argument when creating Thread, and started.
+  
+  
+  6)What if we call Java run() method directly instead start() method?
+  
+  -The run method is just another method. If you call it directly, then it will execute not in another thread,
+   but in the current thread.If start isn't called, then the Thread created will never run. The main thread will 
+   finish and the Thread will be garbage collected.
+   If you call start method then a separate thread will be allocated to execute the run method, means you achieve
+   multi threading . But when you call run method directly then it becomes a normal method and main method itself
+   will execute the run method , means no multi threading.
+ 

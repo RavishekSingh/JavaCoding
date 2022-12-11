@@ -1,0 +1,21 @@
+What is exception handling in java, Write the hierarchy of Exception class and, Mention some
+of the predefined Exception classes at least 5, and the reason when those exception class
+object is generated in our application.
+
+
+-Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, 
+ IOException, SQLException, RemoteException, etc.
+ The core advantage of exception handling is to maintain the normal flow of the application.
+ An exception normally disrupts the normal flow of the application; that is why we need to handle exceptions.
+ 
+ 
+ The java.lang.Throwable class is the root class of Java Exception hierarchy inherited by two subclasses: Exception and Error.
+ 
+ 
+ 
+  
+ 1) ArithmeticException- Arithmetic error, such as divide-by-zero.
+ 2)ArrayIndexOutOfBoundsException- Array index is out-of-bounds.
+ 3)ArrayStoreException- Assignment to an array element of an incompatible type.
+ 4)ClassCastException- Invalid cast.
+ 5)IllegalArgumentException- Illegal argument used to invoke a method.

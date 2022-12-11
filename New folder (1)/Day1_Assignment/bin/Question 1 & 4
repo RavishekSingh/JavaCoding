@@ -1,0 +1,45 @@
+ Explain difference between PriorityQueue() and LinkedList()?
+
+ 
+ -Priority Queue is an abstract data type that is similar to a queue, and every element 
+ has some priority value associated with it. The priority of the elements in a priority
+  queue determines the order in which elements are served
+  
+  
+ -Like arrays, Linked List is a linear data structure. Unlike arrays, linked list 
+   elements are not stored at a contiguous location; the elements are linked using pointers.
+   They include a series of connected nodes. Here, each node stores the data and the address 
+   of the next node.
+   
+   
+   
+  Explain Generics in Java and Its Importance with example?
+   
+ -Generics means parameterized types. The idea is to allow type (Integer, String, … etc., and
+  user-defined types) to be a parameter to methods, classes, and interfaces. Using Generics, it
+  is possible to create classes that work with different data types. An entity such as class,
+  interface, or method that operates on a parameterized type is a generic entity.
+  
+  e.g;
+  
+     class Test<T> {
+   
+    T obj;
+    Test(T obj) { this.obj = obj; } // constructor
+    public T getObject() { return this.obj; }
+ }
+  
+
+       class Main {
+            public static void main(String[] args)
+    {
+        // instance of Integer type
+        Test<Integer> iObj = new Test<Integer>(15);
+        System.out.println(iObj.getObject());
+  
+        // instance of String type
+        Test<String> sObj
+            = new Test<String>("GeeksForGeeks");
+        System.out.println(sObj.getObject());
+    }
+}

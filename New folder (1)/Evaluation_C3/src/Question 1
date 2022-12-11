@@ -1,0 +1,16 @@
+- Explain the meaning of the deadlock in multithreaded application, when it can occur in
+multithreading applications.Write one example of deadlock.?
+
+
+- A lock without key is nothing but commonly known as Deadlock in multithreading,
+if two synchronized threads are waiting for each other forever(infinite time) then there is a
+condition of deadlock.
+
+The synchronized keyword is the only reason for deadlock.
+There is no any suitable solution for it but there are few preventions for it.
+
+Solution for Deadlock:   If for any method from  class A or class B we remove synchronised 
+                         keyword then there will be no deadlock.  
+                         
+                         
+                         

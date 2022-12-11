@@ -1,0 +1,135 @@
+1)What is the difference between a synchronized method and a synchronized block?
+
+
+-Synchronized methods: It enables a simple strategy for preventing the thread interference 
+ and memory consistency errors. If a Object is visible to more than one threads, all reads
+ or writes to that Object’s fields are done through the synchronized method.
+ It is not possible for two invocations for synchronized methods to interleave. 
+ If one thread is executing the synchronized method, all others thread that invoke synchronized
+ method on the same Object will have to wait until first thread is done with the Object.
+ 
+ 
+ Synchronized block:If we only need to execute some subsequent lines of code not all lines (instructions) of code 
+ within a method, then we should synchronize only block of the code within which required instructions are exists.
+ Synchronized blocks provide granular control over a lock, as you can use arbitrary any lock to provide mutual exclusion
+ to critical section code.
+
+
+2)What’s the difference between class lock and object lock?
+
+
+-Class locks − It can be used when we want to prevent multiple threads to enter the synchronized block 
+ in any of all available instances on runtime. It should always be used to make static data thread safe. 
+ Multiple objects of class may exist but there is always one class’s class object lock available.
+ 
+ -Object Locks − It can be used when you want non-static method or non-static block of the code should be accessed
+  by only one thread.It should always be used to make non-static data thread safe. Every object the class may have their own lock.
+  
+  
+  
+4)- What is a Race condition, How will you solve the Race condition,explain with an Example.
+
+
+-A condition in which the critical section (a part of the program where shared memory is accessed) 
+is concurrently executed by two or more threads. It leads to incorrect behavior of a program.
+A race condition can be defined as, a condition in which two or more threads compete together to get certain shared resources.
+
+
+In order to prevent the race conditions, one should ensure that only one process can access the shared data at a time. It is the
+main reason why we need to synchronize the processes.
+
+Another solution to avoid race condition is mutual exclusion. In mutual exclusion, if a thread is using a shared variable or thread, 
+another thread will exclude itself from doing the same thing.
+
+e.g;
+     It can be seen from the output how threads are accessing the shared resource one at a time now. Synchronizing the access within
+     the run() method made it happen.
+
+     class Counter implements Runnable  
+   {  
+      private int c = 0;  
+      public void increment()   
+     {  
+        try   
+         {  
+            Thread.sleep(10);  
+          }   
+        catch (InterruptedException e)   
+         {  
+            e.printStackTrace();  
+         }  
+         c++;  
+    }  
+      public void decrement()   
+    {      
+         c--;          
+     }  
+       public int getValue()   
+     {  
+       return c;  
+      }  
+     @Override  
+     public void run()   
+    {  
+       synchronized(this)  
+     {  
+         // incrementing  
+          this.increment();  
+        System.out.println("Value for Thread After increment " + Thread.currentThread().getName() + " " + this.getValue());  
+         //decrementing  
+         this.decrement();  
+       System.out.println("Value for Thread at last " + Thread.currentThread().getName() + " " + this.getValue());  
+     }          
+   }  
+  }  
+
+
+
+       public class RaceConditionDemo  
+    {  
+         public static void main(String args[])   
+      {  
+            Counter counter = new Counter();  
+            Thread t1 = new Thread(counter, "Thread-1");  
+            Thread t2 = new Thread(counter, "Thread-2");  
+            Thread t3 = new Thread(counter, "Thread-3");  
+             t1.start();  
+             t2.start();  
+              t3.start();  
+        }      
+     }  
+
+
+5)What is the Difference between the sleep and join method .
+
+
+-sleep()method:This method causes the currently executing thread to sleep for the specified number of milliseconds, 
+  subject to the precision and accuracy of system timers and schedulers. 
+  
+  e,g;  //  sleep for the specified number of milliseconds
+          public static void sleep(long millis) throws InterruptedException
+
+        //sleep for the specified number of milliseconds plus nano seconds
+         public static void sleep(long millis, int nanos) throws InterruptedException
+         
+         
+-join()method:The join() method of a Thread instance is used to join the start of a thread’s execution to the end of
+another thread’s execution such that a thread does not start running until another thread ends. If join() is called on 
+a Thread instance, the currently running thread will block until the Thread instance has finished executing. The join() 
+method waits at most this many milliseconds for this thread to die. A timeout of 0 means to wait forever          
+
+
+e.g;     // waits for this thread to die.
+             public final void join() throws InterruptedException
+
+           // waits at most this much milliseconds for this thread to die
+           public final void join(long millis) throws InterruptedException
+
+          // waits at most milliseconds plus nanoseconds for this thread to die.
+            The java.lang.Thread.join(long millis, int nanos)
+            
+            
+            
+        
+            
+            

@@ -1,0 +1,148 @@
+Day1- Basic SQL I
+===========================
+
+
+1)
+
+i)mysql> create table DEPOSIT(ACTNO varchar(25), CNAME varchar(20), BNAME varchar(20), AMOUNT int, ADATE date);
+
+ii)mysql> create table BRANCH(BNAME varchar(20), CITY varchar(20));      
+
+iii)mysql> create table customer(CNAME varchar(20), CITY varchar(20));   
+
+iv)mysql> create table BORROW(LOANNO varchar(5), CNAME varchar(20), BNAME varchar(20), AMOUNT int);  
+
+2)
+mysql> desc deposit;
+mysql> desc branch;
+mysql> desc customer;
+mysql> desc borrow;
+
+3)
+
+i)
+mysql> insert into deposit values('100','ANIL','VRCE',1000.00,'1995-03-01');
+mysql> insert into deposit values('101','SUNIL','MGROAD',5000.00,'1996-01-04');
+mysql> insert into deposit values('102','RAHUL','KAROLBAGH',3500.00,'1995-11-17');
+mysql> insert into deposit values('103','MADHURI','CHANDNI',1200.00,'1995-12-17');
+mysql> insert into deposit values('104','PRAMOD','MGROAD',3000.00,'1996-03-27');
+mysql> insert into deposit values('105','SANDIP','KAROLBAGH',2000.00,'1996-03-31');
+
+ii)
+mysql> insert into branch values('VRCE','NAGPUR');
+mysql> insert into branch values('KAROLBAGH','DELHI');
+mysql> insert into branch values('CHANDNI','DELHI');
+mysql> insert into branch values('MGROAD','BANGALORE');
+
+iii)
+mysql> insert into customer values('ANIL','CALCUTTA');
+mysql> insert into customer values('RAHUL','BARODA');
+mysql> insert into customer values('MADHURI','NAGPUR');
+mysql> insert into customer values('PRAMOD','NAGPUR');
+mysql> insert into customer values('SUNIl','DELHI');
+
+iv)
+mysql> insert into borrow values('201','ANIL','VRCE','1000.00');
+mysql> insert into borrow values('206','RAHUL','KAROLBAGH','5000.00');
+mysql> insert into borrow values('311','SUNIL','MGROAD','3000.00');
+mysql> insert into borrow values('321','MADHURI','CHANDNI','2000.00');
+mysql> insert into borrow values('375','PRAMOD','MGROAD','8000.00');
+
+4)
+mysql> select * from borrow where amount BETWEEN 2000 AND 3000;
+
+5)
+mysql> select * from deposit;
+
+6)
+mysql> select cname,actno from deposit;
+
+7)
+mysql> select cname from customer where city='nagpur';
+
+8)
+mysql> select cname from deposit where adate>'1995-11-17';
+
+9)
+mysql> select actno,amount from deposit  where adate BETWEEN '1995-12-01' AND '1996-06-01';
+
+10)
+mysql> select * from deposit where cname LIKE 'c%';
+
+11)
+mysql> select * from borrow where cname LIKE '_u%';
+
+12)
+mysql> select * from deposit where bname  IN('CHANDNI', 'MGROAD');
+
+13)
+mysql> select * from deposit where NOT( bname  IN('CHANDNI', 'MGROAD'));
+
+14)
+mysql>  select * from deposit  where amount>1000 order by cname asc;
+
+15)
+mysql>  select * from deposit  where amount>1000 order by cname desc;
+
+16)
+mysql> select * from borrow where cname LIKE '__a%' OR cname LIKE '__d%';
+
+17)
+mysql> select * from borrow where NOT(AMOUNT BETWEEN 2000 AND 8000);
+
+18)
+mysql> select distinct actno,cname,bname,amount,adate from deposit;
+
+19)
+mysql> update deposit set amount=amount*0.1 where bname='VRCE';
+
+20)
+mysql> update deposit set amount=amount*0.1 where bname='VRCE' AND cname='ANIL';
+
+
+
+
+Day1- Basic SQL II
+===========================
+
+mysql> create table student(name varchar(20),rollno int,branch varchar(20),city varchar(20));
+
+mysql> insert into student values('VIJAYA',150,'CSE','CHENNAI');
+
+mysql> insert into student values('SITA',202,'ETC','KOLKATA');
+
+mysql> insert into student values('RAVI',300,'EEE','DELHI');
+
+mysql> insert into student values('BASU',165,'ETC','CHENNAI');
+
+mysql> insert into student values('RASMI',107,'ETC','RKL');
+
+mysql> insert into student values('KARAN',111,'CSE','CTC');
+
+mysql> insert into student values('REKHA',117,'BME','BBSR');
+
+1)
+mysql> SELECT BRANCH,COUNT(*) FROM STUDENT GROUP BY BRANCH;
+
+2)
+mysql> SELECT NAME,BRANCH,COUNT(BRANCH) FROM STUDENT WHERE BRANCH LIKE 'E%' GROUP BY NAME,BRANCH;
+
+3)
+mysql>  ALTER TABLE STUDENT ADD(MARKS INT(8));
+
+4)
+mysql> ALTER TABLE STUDENT MODIFY NAME VARCHAR(25);
+
+5)
+mysql> DELETE FROM STUDENT WHERE BRANCH='ETC';
+
+6)
+mysql>  ALTER TABLE STUDENT RENAME TO STUDINFORMATION;
+
+7)
+mysql>  DELETE from  STUDINFORMATION;
+
+8)
+mysql> drop table studinformation;
+
+

@@ -1,0 +1,17 @@
+mysql> create table Department
+    -> (
+    -> did int primary key,
+    -> dname varchar(12),
+    -> location varchar(12)
+    -> );
+
+
+mysql> create table Employee
+    -> (
+    -> empid int primary key,
+    -> ename varchar(12),
+    -> address varchar(12),
+    -> mobile varchar(10),
+    -> deptid int,
+    -> foreign key (deptid) references Department(did)
+    -> );

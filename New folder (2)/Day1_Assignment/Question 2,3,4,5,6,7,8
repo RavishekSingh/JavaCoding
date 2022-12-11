@@ -1,0 +1,111 @@
+2) When should one use Maven?
+
+
+-Maven is a powerful project management tool that is based on POM (project object model). 
+ It is used for projects build, dependency and documentation.
+ Maven is chiefly used for Java-based projects, helping to download dependencies, which 
+ refers to the libraries or JAR files. The tool helps get the right JAR files for each 
+ project as there may be different versions of separate packages.
+ 
+ 
+ 
+ 3) Explain the core concepts of Maven.?
+ 
+ 
+ -Maven is based on the concept of project object model (POM) file. POM is an XML file which
+  contains project resources like source code, test code and dependencies (external JARs) etc.
+  The POM file should be in the project’s root directory.
+  
+  Maven Core Concepts:
+
+  POM Files
+  Build Life Cycles, Phases and Goals
+  Dependencies and Repositories
+  Build Plugins
+  Build Profiles
+  
+  
+  
+ 4) Explain about the basic properties of pom.xml file.?
+ 
+ 
+ -The pom. xml file contains information of project and configuration information for the maven
+  to build the project such as dependencies, build directory, source directory, test source directory,
+  plugin, goals etc. Maven reads the pom. xml file, then executes the goal.
+  
+  
+  
+ 5) What are the different phases of the default life cycle?
+ 
+ 
+ - The default lifecycle comprises of the following phases :
+
+ *validate - validate the project is correct and all necessary information is available
+ *compile - compile the source code of the project
+ *test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+ *package - take the compiled code and package it in its distributable format, such as a JAR.
+ *verify - run any checks on results of integration tests to ensure quality criteria are met
+ *install - install the package into the local repository, for use as a dependency in other projects locally
+ *deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects. 
+ 
+ 
+ 
+ 6) What are the different types of Maven repositories?
+ 
+ 
+ -A maven repository is a directory of packaged JAR file with pom.xml file. Maven searches for dependencies in the repositories.
+  There are 3 types of maven repository:
+
+ *Local Repository
+ *Central Repository
+ *Remote Repository
+
+ Maven searches for the dependencies in the following order:
+
+ Local repository then Central repository then Remote repository.
+ 
+ 
+ 
+ 7)Explain what a Primary key, Candidate Key, Prime Attributes, and Non-prime Attributes is.?
+ 
+ 
+ - Primary Key- A primary key is the column or columns that contain values that uniquely identify each row in a table.
+                A database table must have a primary key for Optim to insert, update, restore, or delete data from a database table.
+                
+   Candidate Key- A candidate key, or simply a key, of a relational database is a minimal superkey.[1] In other words, it is any set 
+                  of columns that have a unique combination of values in each row (which makes it a superkey), with the additional 
+                  constraint that removing any column would possibly produce duplicate rows (which makes it a minimal superkey).        
+                  
+    Prime Attributes- A prime attribute is an attribute that is part of any candidate key. It can also be used to uniquely identify a
+                      tuple in the schema. A prime attribute in DBMS is also known as a key attribute.      
+                      
+   Non-Prime Attributes-Non-prime attribute − An attribute, which is not a part of the prime-key, is said to be a non- prime attribute. 
+                        If we follow second normal form, then every non-prime attribute should be fully functionally dependent on prime key attribute.  
+                        
+                        
+
+8) What are the rules for a table to be in 1NF, 2NF, and 3NF?
+
+
+-First Normal Form (1NF)
+A relation will be 1NF if it contains an atomic value.
+It states that an attribute of a table cannot hold multiple values. It must hold only single-valued attribute.
+First normal form disallows the multi-valued attribute, composite attribute, and their combinations.
+
+
+Second Normal Form (2NF)
+In the 2NF, relational must be in 1NF.
+In the second normal form, all non-key attributes are fully functional dependent on the primary key
+
+
+Third Normal Form (3NF)
+A relation will be in 3NF if it is in 2NF and not contain any transitive partial dependency.
+3NF is used to reduce the data duplication. It is also used to achieve the data integrity.
+If there is no transitive dependency for non-prime attributes, then the relation must be in third normal form.
+
+
+
+
+                        
+                                                     
+ 

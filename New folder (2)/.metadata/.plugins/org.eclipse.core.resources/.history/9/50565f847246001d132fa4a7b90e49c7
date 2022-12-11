@@ -1,0 +1,26 @@
+1) Explain Layared Architecture in Business application?
+
+
+- Layared Architecture in Business application we devide into 3 logical partition:
+
+ 1.Presentation Layer(UI layer)
+--it is set of java classes, which are responsible for generating user input screen and response page(output screen) is knwon as PL.
+
+--this layer provides the intraction with the end-user.
+
+
+2.Business Logic Layer (Service layer)
+--programatical implementation of business rule of a business organization is nothing but business logic .
+--a collection of java classes whose methods have business logic to process the data according to the business rule is known as SL/BLL.
+
+
+3.Data Access Layer
+
+--a set of java classes whose methods r exclusivly meant for performing CRUD operation with the DB server is known as DAL.
+using JDBC and DAO pattern
+
+**Note:- to communicate among these layers loose coupling should be promoted.
+
+
+
+2)

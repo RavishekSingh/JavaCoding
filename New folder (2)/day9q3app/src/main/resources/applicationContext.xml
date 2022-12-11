@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="st" class="com.masai.Student">
+        
+            <constructor-arg value="1" />
+            <constructor-arg value="Ram" />
+            <constructor-arg value="500"/>
+            
+        </bean> 
+        
+        
+        <bean  id="col" class="com.masai.Collage">
+        
+            <property name="collage_name" value="IIT Mumbai" />
+             
+             
+             <property name="student"  ref="st"/>
+             <property name="collage_address"  value="Mumbai"/>        
+        
+        
+        
+        </bean>
+        
+        
+        
+  </beans>

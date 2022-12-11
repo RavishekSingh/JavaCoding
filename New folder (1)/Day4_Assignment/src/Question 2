@@ -1,0 +1,24 @@
+Explain the difference between Checked and Unchecked exceptions. write some
+examples of checked and unchecked exception classes.
+
+
+-Exception classes are categorized in 2 category:
+
+1.Checked Exception (checked by the java compiler whether we have handled that 
+  exception class object or not at compile time)
+
+  ex:     ClassNotFoundException
+          IOException
+          SQLException
+          FileNotFoundException
+          
+
+
+2.Unchecked Exception (not checked by the compiler whether we handled exception class object or not)
+
+  ex:   NullPointerException
+        ArithmaticException
+
+
+ Whether exceptions is a checked or unchecked exception, exceptions always occurs at runtime, it never 
+ occurs at compile time, compile time only occurs compilation error.
