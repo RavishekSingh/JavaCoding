@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="St1" class="com.masai.Employee">
+		<constructor-arg value="1" />
+		<constructor-arg value="Ram" />
+		<constructor-arg value="Pune" />
+		<constructor-arg value="50000" />
+	</bean>
+
+	<bean id="St2" class="com.masai.Employee">
+		<constructor-arg value="2" />
+		<constructor-arg value="Viraj" />
+		<constructor-arg value="Chennai" />
+		<constructor-arg value="65000" />
+	</bean>
+
+	<bean id="St3" class="com.masai.Employee">
+		<constructor-arg value="3" />
+		<constructor-arg value="Sam" />
+		<constructor-arg value="Kolkata" />
+		<constructor-arg value="60000" />
+	</bean>
+
+
+
+	<bean id="Dep1" class="com.masai.Department">
+		<constructor-arg value="4" />
+		<constructor-arg value="Sales" />
+		<constructor-arg value="Mumbai" />
+
+	</bean>
+	<bean id="Dep2" class="com.masai.Department">
+		<constructor-arg value="5" />
+		<constructor-arg value="Marketing" />
+		<constructor-arg value="Mumbai" />
+
+	</bean>
+	<bean id="Dep3" class="com.masai.Department">
+		<constructor-arg value="6" />
+		<constructor-arg value="Accounts" />
+		<constructor-arg value="Mumbai" />
+
+	</bean>
+
+	<bean id="demo" class="com.masai.Demo" init-method="myInit"
+		destroy-method="cleanUp" lazy-init="true">
+
+		<property name="theMap">
+			<map>
+
+				<entry key-ref="Dep1" value-ref="St1" />
+				<entry key-ref="Dep2" value-ref="St2" />
+				<entry key-ref="Dep3" value-ref="St3" />
+
+			</map>
+
+
+		</property>
+
+
+	</bean>
+
+
+
+</beans>

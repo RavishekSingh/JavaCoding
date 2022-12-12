@@ -1,0 +1,104 @@
+Q1/- What is the J2EE, list out some of the Application Server names.
+
+-J2EE : Java Enterprise Edition (it is also an open specification and the implementation of this specification is "ApplicationServer" s/w).
+-J2EE specification provides lots of api (predefined classes and interfaces ) to use those services so that we just need to focus on main business logic.
+
+Some of the application server s/w are:
+
+*Websphere server : from IBM
+*Weblogic server : from Oracle
+*Glassfish server : from Oracle
+*JBOSS server/ Wildfly server: RedHat.
+
+
+
+
+Q2/- What is the difference between an Application Server and a Web server?
+
+
+-Difference between Application Server and  Web Server:
+
+
+1. Java based webserver is the small part/ subset of the ApplicationServer.
+
+2.Application Server contains both EJB container and ServletContainer s/w where as Webserver s/w contains only ServletContainer s/w, it does not 
+  contains EJB-container.
+
+3.Application Server can be communicated with any kind of protocol ex: http, smtp, ftp, etc, whereas Web server can be communicated only using 
+ Http protocol.
+
+4. Application Server is a heavy weight server where as Webserver is a lightweight server.
+
+
+
+
+
+Q3/- What are the challenges of developing an Enterprise application?
+
+
+-Challenges to develop Enterprise application:
+
+An Enterprise application is by default a distributed application, 
+because EA is divided into separate modules, and each module can be a independent
+application, here each module will collaborate with each other and provide services
+as whole.
+
+1. data security : the data exchange should be encrypted and decrypted, authentication and authorization is also required.
+
+2. client can accces the application in a platform and language independent form.
+i.e by making our presentation logic web-enabled. so client can access our application
+through the web-browser.
+
+Presentation could be in GUI : that can be accesed by the browser (webapplication)
+they are not reusable.
+
+Presentation could be in the form raw data (JSON or xml format)  (webservices)
+they are the reusable 
+
+3. transaction management : (either everything or nothig should happen)
+
+4. logging 
+
+5.messaging 
+
+6.mailing .
+
+
+
+
+
+Q4/- Write Short notes on how the Spring framework evolves.
+
+
+-In early days of java based business application development, programmer used multiple java bean classes (normal java classes) to build the
+business logic layer/service layer.
+The Business logic layer only required the Enterprise capabilities like security, tx-management, logging, mailing, messaging, etc, these 
+enterprise
+capabilities are also known as extra service to the main business logic or middlewere services to make our main business logic perfect.
+With the Java bean classes, developers are only responsible to define and add these middlewere services to the main business logic, it increases
+burden to the developers.
+
+To overcome the above burden to develop a business logic/service logic,sun-microsystem has released EJB technology as part of J2EE specification,
+in 1998.
+In EJB technology, programmer develop the main business logic and EJB-container provides these extra middlewere services.
+EJB reduced the middlwere service development from the programmer, but it increased the complexities to access these middlewere services. 
+EJB component are heavy weight components (Here our java classes need to be developed as EJB  component by implementing EJB technology related
+interfaces, need to override lost of unnessasry methods inside our java classes and need to register these java classes inside 
+various xml files and deploy our EJB component inside the ApplicationServer s/w).
+EJB has beed very powerfull but very complex to the build the Business Logic layer.
+To the build the business logic layer, simplicity of Java bean classes + Power of EJB - complexities 
+of EJB was realised in the industry.
+
+Rod Jonshon, developed a f/w called "Interface 21" to address the above need and rename it to the Spring and released in mid of 2004.
+
+Spring f/w allows to write the business logic in a POJO classes, and 
+Spring Container provides the middleware services to our main business class with less process overhead.
+So our business logic related classes need not implement or extends any other classes or interfaces or override any unnessasry methods.
+No need to install ApplicationServer s/w.
+Uunlike EJB container, Spring container is a lightweight container, can be activated in any type of Java application (need not install AS s/w).
+
+Spring is a application f/w software to develop EA.
+S/W communities treats spring as a framework of frameworks, because it gives the support of varaious other f/w software also. like hibernate,
+struts, JSF,etc
+Spring is an open source, light weight application f/w that can be used in all the layers of Java based Enterprise application development.
+With the Spring f/w we can develop J2SE related or J2EE related application as well.

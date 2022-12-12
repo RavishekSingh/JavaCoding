@@ -1,0 +1,12 @@
+What is the difference between ArrayList and Array?
+
+
+- ArrayList can only be single-dimensional. Here iterator is used to traverse riverArrayList.
+  size() method is used to compute the size of ArrayList.
+  It is dynamic and can be increased or decreased in size when required.
+  Here a special method is used known as add() method 
+  
+  -Array can be single-dimensional or multidimensional.
+   For and for each generally is used for iterating over arrays.
+   length keyword can give the total size of the array.
+   It is static and of fixed length.Assignment operator only serves the purpose.

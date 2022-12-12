@@ -1,0 +1,24 @@
+Explain about the Marker interface?
+
+
+- It is an empty interface (no field or methods). 
+  Examples of marker interface are Serializable, Cloneable
+  and Remote interface. All these interfaces are empty interfaces. 
+ 
+e.g:
+      public interface Serializable 
+   {
+        // nothing here
+  }
+  
+  
+  
+  Why multiple Inheritance is not supported in Java at the class Level?
+  
+  
+  - Multiple inheritances lead to ambiguity.For example, if there is a 
+    class named Sub and there are two classes Super1 and Super2 and if 
+    both contains a method named sample().
+    And if the class sub inherits both classes Super1 and Super2 then there
+    will be two copies of the sampling method one from each superclass and it
+    is ambiguous to decide which method to be executed.

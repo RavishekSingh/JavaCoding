@@ -1,0 +1,50 @@
+mysql> create table faculty(
+    -> FacultyID int(3),
+    -> Name varchar(20),
+    -> Department varchar(30),
+    -> Gender varchar(10),
+    -> Salary int,
+    -> Workinghours int,
+    -> Vacationhours int
+    ->
+    -> );
+
+
+
+mysql> insert into faculty values
+    -> (001 ,'Aakash' ,'CS' ,'M' ,50000 ,45 ,null),
+    -> (002 ,'Sahil' ,'EC' ,'M' ,25000 ,50, null),
+    -> (003 ,'John' ,'HSS' ,'M' ,100000 ,60, null),
+    -> (004 ,'Shelley' ,'CS' ,'F' ,75000 ,80, null),
+    -> (005 ,'Anannya' ,'CS' ,'F' ,45000, 100 ,null),
+    -> (006 ,'Sia' ,'HSS' ,'F' ,60000 ,40, null);
+
+
+1)
+update faculty
+set department=case department
+when 'CS' then'Computer Science'
+when 'EC' then 'Electronics and Communication'
+when 'HSS' then 'Humanities and Social Sciences'
+end;
+
+
+2)
+update faculty
+set Vacationhours=Case 
+when Workinghours BETWEEn 0 AND 50 then null
+when Workinghours BETWEEn 51 AND 80 then 20
+when Workinghours BETWEEn 81 AND 120 then 40
+end;
+
+
+3)
+select * ,
+case when Vacationhours is null then 'notallowed'
+else 'allowed'
+end eligibility
+from faculty;
+
+
+
+

@@ -1,0 +1,53 @@
+Briefly explain the difference between Early and Late Binding with examples.
+
+
+
+Binding is connecting the method body with the method call.
+
+If it is decided at compilation time then it is known as early binding
+(method overloading or static polymorphism);
+
+e.g:
+  public class New{
+    
+     static void print(){
+     
+        System.out.println("print one time");
+     
+     }
+      static void print(){
+     
+        System.out.println("print second time");
+     
+     }
+  
+  }
+
+
+
+But when it is decided by the JVM at the runtime then it is called late binding
+(method overriding or dynamic polymorphism);
+
+e.g:
+
+   public class New{
+    
+      void print(){
+     
+        System.out.println("print one time");
+     
+     }
+   }
+     
+     public class Other{
+           @Override
+           void print(){
+     
+        System.out.println("print second time");
+     
+     }
+     
+   }
+     
+  
+  

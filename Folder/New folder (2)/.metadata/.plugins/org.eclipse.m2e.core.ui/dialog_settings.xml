@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\user\Desktop\SB201 Assgn\day11q3app"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\day10q5app"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\Drawshapes"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\ques4app"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\question1OTMbidapp"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\day7q1jointableapp"/>
+			<item value="C:\Users\user\Desktop\SB201 Assgn\question1mismatchapp"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.masai"/>
+			<item value="com.masai.entities"/>
+			<item value="accountapp"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="day11q4app"/>
+			<item value="day11q1app"/>
+			<item value="day10q5app"/>
+			<item value="evalques2app"/>
+			<item value="evalques4app"/>
+			<item value="day11q3app"/>
+			<item value="day9q3app"/>
+			<item value="ques1app"/>
+			<item value="ques4app"/>
+			<item value="day6q2app"/>
+			<item value="day7q2app"/>
+			<item value="day5q2jpqlapp"/>
+			<item value="day7q1jointableapp"/>
+			<item value="question1mismatchapp"/>
+			<item value="question1OTMbidapp"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

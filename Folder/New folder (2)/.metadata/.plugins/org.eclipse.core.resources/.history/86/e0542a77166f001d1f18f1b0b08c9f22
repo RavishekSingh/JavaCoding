@@ -1,0 +1,106 @@
+package com.masai.controller;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.masai.exception.BookNotFoundException;
+import com.masai.model.Book;
+import com.masai.service.BookService;
+import com.quickPay.model.Beneficiary;
+
+@RestController
+public class BookController {
+
+	@Autowired
+	private BookService bService;
+	
+	
+	@GetMapping("/books")
+	   public ResponseEntity<List<Book>> getAllBookDetails(){
+		  
+		List<Book> list = bService.getAllBooks();
+
+		return new ResponseEntity<List<Book>>(list, HttpStatus.OK);
+	   }
+	   
+	   @GetMapping("/books/{BookId}")
+	   public ResponseEntity<Book>  getBookById(@PathVariable("BookId") Integer bookId) throws BookNotFoundException {
+		   
+		 Optional<Book> opt=
+	   }
+	   
+	   @PostMapping("/books")
+	   public ResponseEntity<String>  addNewBook(@Valid @RequestBody Book book) {
+		   
+		   books.add(book);
+		   
+		   //return "Book added successfully!";
+	   
+		   return new ResponseEntity<String>("Book added successfully",HttpStatus.CREATED);
+	   }
+	   
+	   @PutMapping("/books/{BookId}")
+	   public Book updateBook(@Valid @RequestBody Book book, @PathVariable("BookId") Integer BookId) throws BookNotFoundException {
+		   
+		   boolean flag=true;
+		   
+		   for(Book bk:books) {
+			   if(bk.getBookId()==BookId) {
+				   bk.setName(book.getName());
+				   bk.setAuthor(book.getAuthor());
+				   bk.setPrice(book.getPrice());
+				   flag=false;
+				   break;
+			   }
+		   }
+		   
+		   if(flag)
+				 throw new BookNotFoundException("Book does not exist with id "+BookId);
+		   
+		   return book;
+	   }
+	 
+	   @PutMapping("/bookspriceupdate/{BookId}")
+	   public String updateBook(@PathVariable("BookId") Integer BookId, @RequestParam("price") Integer price) throws BookNotFoundException {
+		   
+		   boolean flag=true;
+		   
+		   for(Book bk:books) {
+			   if(bk.getBookId()==BookId) {
+				   bk.setPrice(bk.getPrice()+price);
+				   flag=false;
+				   break;
+			   }
+		   }
+		   
+		   if(flag)
+				 throw new BookNotFoundException("Book does not exist with id "+BookId);
+		   
+		   return "Book price updated";
+	   }
+	   
+	   @DeleteMapping("/books/{BookId}")
+	   public ResponseEntity<Book> deleteProductByIdHandler(@PathVariable("BookId") Integer bookId) throws BookNotFoundException{
+			
+			Book delepd= bService.deleteBook(bookId);
+			
+			return new ResponseEntity<Book>(delepd,HttpStatus.OK);
+			
+		}
+}

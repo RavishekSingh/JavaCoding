@@ -1,0 +1,75 @@
+How many types of relationships exist among tables in the
+Database? Explain with some examples, and also mention how to
+establish these relationships among tables with examples
+
+
+
+-At table level there are 3 types of relationship:
+
+1. One to One
+
+e.g:
+      
+      create table person(
+      pid int primar key,
+      pname varchar(20)
+      );
+      
+      create table PAN(
+      panid int primar key,
+      panno int unique,
+      foreign key (panno) references person(pid)
+      );
+      
+      
+      
+
+2. One to Many
+
+e.g:
+ create table department(
+   did int primary key,
+     dname varchar(12) not null,
+    location varchar(12) not null
+     );
+     
+     
+      create table employee(
+     empId int primary key,
+     ename varchar(12) not null,
+     address varchar(12) not null,
+    mobile varchar(12) not null,
+     salary int not null,
+     deptId int,
+     foreign key (deptid) references department(did)
+     );
+     
+     
+     
+     
+     
+     
+3. Many to Many.
+
+e.g:
+create table student(
+     roll int primary key,
+     name varchar(12) not null,
+     address varchar(12) not null,
+     mobile varchar(10) not null
+     );
+     
+     
+     create table course(
+     cid int primary key,
+    cname varchar(12) not null,
+     fee int not null,
+     duration varchar(12) not null
+     );
+    
+    create table student_course(
+     roll int,
+     cid int,
+     foreign key (roll) references student(roll),
+     foreign key (cid) references course(cid)
+     );

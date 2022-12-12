@@ -1,0 +1,29 @@
+Explain Difference between Upper Bounded Wildcards and Lower Bounded Wildcards with Example.
+
+
+-Upper bounded wildcards is used to relax the restrictions on a variable. 
+For example, if we want to write a method that works on List<Integer>, 
+List<Double>, and List<Number>; we can achieve this by using an upper bounded wildcard.
+
+e.g;
+      public static double sumOfList(List<? extends Number> list) {
+               double s = 0.0;
+              for (Number n : list)
+                 s += n.doubleValue();
+                return s;
+        }
+        
+        List<Integer> li = Arrays.asList(1, 2, 3);
+        System.out.println("sum = " + sumOfList(li));
+        
+        
+-Lower bounded wildcard restricts the unknown type to be a specific type or a super type of that type.
+ Lower bounded wildcard is expressed using the wildcard character ('?'), following by the super keyword, 
+ followed by its lower bound: <? super A>.
+ 
+ e.g;
+       public static void addNumbers(List<? super Integer> list) {
+               for (int i = 1; i <= 10; i++) {
+                list.add(i);
+           }
+        }

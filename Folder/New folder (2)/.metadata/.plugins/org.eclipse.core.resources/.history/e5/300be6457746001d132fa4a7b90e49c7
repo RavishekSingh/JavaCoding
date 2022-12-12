@@ -1,0 +1,82 @@
+1) Explain Layared Architecture in Business application?
+
+
+- Layared Architecture in Business application we devide into 3 logical partition:
+
+ 1.Presentation Layer(UI layer)
+--it is set of java classes, which are responsible for generating user input screen and response page(output screen) is knwon as PL.
+
+--this layer provides the intraction with the end-user.
+
+
+2.Business Logic Layer (Service layer)
+--programatical implementation of business rule of a business organization is nothing but business logic .
+--a collection of java classes whose methods have business logic to process the data according to the business rule is known as SL/BLL.
+
+
+3.Data Access Layer
+
+--a set of java classes whose methods r exclusivly meant for performing CRUD operation with the DB server is known as DAL.
+using JDBC and DAO pattern
+
+**Note:- to communicate among these layers loose coupling should be promoted.
+
+
+
+2)limitation of JDBC based persistence logic over JPA?
+
+
+-1.jdbc can't store the java objs into the table directly,becoz sql queires does not allows the java objs as input, here we need to convert
+  obj data into the simple(atmoic) value to store them in a DB.
+  
+2.jdbc code is the DB dependent code becoz it uses  DB s/w dependent queries. so our jdbc based persistence logic is not 100% portable across
+ various DB s/w.
+
+3.jdbc code having boiler plate code problem (writing the same code except sql queries in multiple classes of our application again and again)..
+
+4.jdbc code throws lots of checked exceptions, programmer need to handle them.
+
+5.After the select operation, we get the ResultSet object.this RS obj we can not transfer from one layer to another layer and to get the data
+ from the ResultSet we need to now the structure of the ResultSet.
+
+6.there is no any caching and transaction management support is available in jdbc.
+
+etc ...
+
+
+
+3)Differentiate between Hibernate and JPA?
+
+
+-JPA: JPA is described in javax.persistence package.
+      It describes the handling of relational data in Java applications.
+      It is not an implementation. It is only a Java specification.
+      It is a standard API that permits to perform database operations.
+      As an object-oriented query language, it uses Java Persistence Query Language (JPQL) to execute database operations.
+      
+      
+-Hibernate: Hibernate is described in org.hibernate package.
+            Hibernate is an Object-Relational Mapping (ORM) tool that is used to save the Java objects in the relational database system.
+            Hibernate is an implementation of JPA. Hence, the common standard which is given by JPA is followed by Hibernate.
+            It is used in mapping Java data types with SQL data types and database tables.
+            As an object-oriented query language, it uses Hibernate Query Language (HQL) to execute database operations.
+            
+            
+            
+ 
+ 4)Explain the properties of JPA(Java Persistence API?
+ 
+ 
+ -The Java Persistence API (JPA) is a specification of Java. It is used to persist data between Java object and relational database. JPA acts
+  as a bridge between object-oriented domain models and relational database systems.As JPA is just a specification, it doesn't perform any operation
+  by itself. It requires an implementation. So, ORM tools like Hibernate, TopLink and iBatis implements JPA specifications for data persistence.
+  The Java Persistence API (JPA) is one possible approach to ORM. Via JPA the developer can map, store, update and retrieve data from relational databases
+  to Java objects and vice versa. JPA can be used in Java-EE and Java-SE applications. JPA is a specification and several implementations are available.
+  
+  
+  
+ 5)Why to use ORM and What are the benefits of ORM?
+ 
+ 
+ -
+                                                                                          

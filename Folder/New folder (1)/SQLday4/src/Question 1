@@ -1,0 +1,18 @@
+What is JDBC, Write a note on JDBC driver software?
+
+
+-JDBC stands for Java Database Connectivity. JDBC is a Java API to 
+connect and execute the query with the database. It is a part of 
+JavaSE (Java Standard Edition). JDBC API uses JDBC drivers to connect with the database.
+
+JDBC drivers implement the defined interfaces in the JDBC API, for interacting with your database server.
+JDBC drivers enable us to open database connections and to interact with it by sending SQL or database 
+commands then receiving results with Java.
+
+JDBC Driver is a software component that enables java application to interact with the database. There are 4 types of JDBC drivers:
+1)JDBC-ODBC bridge driver
+2)Native-API driver (partially java driver)
+3)Network Protocol driver (fully java driver)
+4)Thin driver (fully java driver)
+
+

@@ -1,0 +1,284 @@
+1)
+mysql> create table student(
+    -> roll int primary key,
+    -> name varchar(12) not null,
+    -> address varchar(12) not null,
+    -> mobile varchar(10) not null
+    -> );
+
+
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| roll    | int         | NO   | PRI | NULL    |       |
+| name    | varchar(12) | NO   |     | NULL    |       |
+| address | varchar(12) | NO   |     | NULL    |       |
+| mobile  | varchar(10) | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+mysql> create table course(
+    -> cid int primary key,
+    -> cname varchar(12) not null,
+    -> fee int not null,
+    -> duration varchar(12) not null
+    -> );
+
+mysql> desc course;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| cid      | int         | NO   | PRI | NULL    |       |
+| cname    | varchar(12) | NO   |     | NULL    |       |
+| fee      | int         | NO   |     | NULL    |       |
+| duration | varchar(12) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+mysql> create table student_course(
+    -> roll int,
+    -> cid int,
+    -> foreign key (roll) references student(roll),
+    -> foreign key (cid) references course(cid)
+    -> );
+
+mysql> desc student_course;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| roll  | int  | YES  | MUL | NULL    |       |
+| cid   | int  | YES  | MUL | NULL    |       |
++-------+------+------+-----+---------+-------+
+
+mysql> select * from student;
++------+--------+---------+--------+
+| roll | name   | address | mobile |
++------+--------+---------+--------+
+|    1 | Venkat | delhi   | 47854  |
+|    2 | Amit   | delhi   | 45217  |
+|    3 | Raj    | delhi   | 85475  |
+|    4 | Binay  | delhi   | 95421  |
+|    5 | Suresh | delhi   | 65412  |
++------+--------+---------+--------+
+
+
+mysql> select * from course;
++------+-----------+------+----------+
+| cid  | cname     | fee  | duration |
++------+-----------+------+----------+
+| 1000 | Java      | 4000 | 45days   |
+| 1001 | Spring    | 5000 | 50days   |
+| 1002 | Hibernate | 4000 | 55days   |
+| 1003 | React     | 5200 | 60days   |
+| 1004 | Angular   | 5200 | 40days   |
++------+-----------+------+----------+
+
+
+
+
+mysql> insert into student_course values
+    -> (2,1000),
+    -> (2,1001);
+
+mysql>  insert into student_course values
+    ->      (1,1000),
+    ->      (1,1003);
+
+
+mysql>  insert into student_course values
+    ->           (3,1001),
+    ->          (3,1004);
+
+
+
+mysql>  insert into student_course values
+    ->   (5,1000),
+    ->   (5,1002),
+    -> (5,1003);
+
+
+  mysql>  insert into student_course values
+    ->    (4,1003);
+
+
+mysql> select * from student_course;
++------+------+
+| roll | cid  |
++------+------+
+|    2 | 1000 |
+|    2 | 1001 |
+|    1 | 1000 |
+|    1 | 1003 |
+|    3 | 1001 |
+|    3 | 1004 |
+|    5 | 1000 |
+|    5 | 1002 |
+|    5 | 1003 |
+|    4 | 1003 |
++------+------+
+
+
+
+
+2)
+
+mysql> create table department(
+    -> did int primary key,
+    -> dname varchar(12) not null,
+    -> location varchar(12) not null
+    -> );
+
+
+mysql> create table employee(
+    -> empId int primary key,
+    -> ename varchar(12) not null,
+    -> address varchar(12) not null,
+    -> mobile varchar(12) not null,
+    -> salary int not null,
+    -> deptId int,
+    -> foreign key (deptid) references department(did)
+    -> );
+
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| did      | int         | NO   | PRI | NULL    |       |
+| dname    | varchar(12) | NO   |     | NULL    |       |
+| location | varchar(12) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| empId   | int         | NO   | PRI | NULL    |       |
+| ename   | varchar(12) | NO   |     | NULL    |       |
+| address | varchar(12) | NO   |     | NULL    |       |
+| mobile  | varchar(12) | NO   |     | NULL    |       |
+| salary  | int         | NO   |     | NULL    |       |
+| deptId  | int         | YES  | MUL | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+mysql> insert into department values
+    -> (1,'Account','Delhi'),
+    -> (2,'Sales','Delhi'),
+    -> (3,'Marketing','Delhi'),
+    -> (4,'HR','Delhi');
+
+
+mysql> select * from department;
++-----+-----------+----------+
+| did | dname     | location |
++-----+-----------+----------+
+|   1 | Account   | Delhi    |
+|   2 | Sales     | Delhi    |
+|   3 | Marketing | Delhi    |
+|   4 | HR        | Delhi    |
++-----+-----------+----------+
+
+
+
+mysql> insert into employee values
+    -> (101,'Raj','Pune','45875',40000,1),
+    -> (102,'Ram','Puri','65875',45000,1);
+
+
+mysql> insert into employee values
+    ->      (103,'Saj','Pune','85875',40000,2),
+    ->      (104,'Rahul','Puri','95875',45000,2);
+
+
+
+mysql>  insert into employee values
+    ->     (105,'Sam','Pune','89875',50000,3),
+    ->     (106,'Rohit','Puri','45875',45000,3);
+
+
+mysql>  insert into employee values
+    ->       (107,'Mohan','Pune','39875',50000,4),
+    ->       (108,'Mohit','Puri','15875',45000,4);
+
+
+
+mysql> select * from employee;
++-------+-------+---------+--------+--------+--------+
+| empId | ename | address | mobile | salary | deptId |
++-------+-------+---------+--------+--------+--------+
+|   101 | Raj   | Pune    | 45875  |  40000 |      1 |
+|   102 | Ram   | Puri    | 65875  |  45000 |      1 |
+|   103 | Saj   | Pune    | 85875  |  40000 |      2 |
+|   104 | Rahul | Puri    | 95875  |  45000 |      2 |
+|   105 | Sam   | Pune    | 89875  |  50000 |      3 |
+|   106 | Rohit | Puri    | 45875  |  45000 |      3 |
+|   107 | Mohan | Pune    | 39875  |  50000 |      4 |
+|   108 | Mohit | Puri    | 15875  |  45000 |      4 |
++-------+-------+---------+--------+--------+--------+
+
+mysql> select d.dname,sum(salary) from department d
+    -> INNER JOIN employee e ON d.did=e.deptid group by d.dname;
++-----------+-------------+
+| dname     | sum(salary) |
++-----------+-------------+
+| Account   |       85000 |
+| Sales     |       85000 |
+| Marketing |       95000 |
+| HR        |       95000 |
++-----------+-------------+
+
+
+
+
+mysql> select empid,ename,address,mobile,salary from
+    -> department d INNER JOIN employee e ON d.did=e.deptid AND d.dname='Sales';
++-------+-------+---------+--------+--------+
+| empid | ename | address | mobile | salary |
++-------+-------+---------+--------+--------+
+|   103 | Saj   | Pune    | 85875  |  40000 |
+|   104 | Rahul | Puri    | 95875  |  45000 |
++-------+-------+---------+--------+--------+
+
+
+mysql> select e.empid,d.did,d.dname,d.location from
+    -> department d INNER JOIN employee e ON d.did=e.deptid group by e.empid;
++-------+-----+-----------+----------+
+| empid | did | dname     | location |
++-------+-----+-----------+----------+
+|   101 |   1 | Account   | Delhi    |
+|   102 |   1 | Account   | Delhi    |
+|   103 |   2 | Sales     | Delhi    |
+|   104 |   2 | Sales     | Delhi    |
+|   105 |   3 | Marketing | Delhi    |
+|   106 |   3 | Marketing | Delhi    |
+|   107 |   4 | HR        | Delhi    |
+|   108 |   4 | HR        | Delhi    |
++-------+-----+-----------+----------+
+
+
+
+
+mysql> select * from employee where salary = (select max(salary) from employee where salary < (select max(salary) from employee));
++-------+-------+---------+--------+--------+--------+
+| empId | ename | address | mobile | salary | deptId |
++-------+-------+---------+--------+--------+--------+
+|   102 | Ram   | Puri    | 65875  |  45000 |      1 |
+|   104 | Rahul | Puri    | 95875  |  45000 |      2 |
+|   106 | Rohit | Puri    | 45875  |  45000 |      3 |
+|   108 | Mohit | Puri    | 15875  |  45000 |      4 |
++-------+-------+---------+--------+--------+--------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
