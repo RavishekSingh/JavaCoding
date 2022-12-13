@@ -1,0 +1,69 @@
+Ques 1: How to convert a Array into ArrayList and vice-versa? Write example code
+snippet
+
+
+- Array to List
+    Integer[] arr = { 50, 20, 40, 30 };
+    List<Integer> list = Arrays.asList(arr);
+    System.out.println("List:" + list);
+We declares an Integer array called myArray and initializes it with  
+some values. Then invoking the Arrays.asList method passing in myArray.
+This returns an Integer list which is assigned to myList
+
+List to Array
+List<Integer> myList = Arrays.asList(50,20,40,30);
+Integer[] myArray = myList.toArray(new Integer[myList.size()]);
+In this case when toArray is invoked, a new Integer array is passed
+in, So toArray returns an Integer array and there is no need to 
+explicitly typecast the array.
+
+
+
+Ques 2: Why collections are used in java if everything can be implemented using Array?
+
+
+- Arrays are fixed in size i.e once the array with the specific size is declared then we can't alter its size afterward.	
+The collection is dynamic in size i.e based on requirement size could be get altered even after its declaration.
+
+Arrays can hold the only the same type of data in its collection i.e only homogeneous data types elements are allowed in 
+case of arrays.	Collection, on the other hand, can hold both homogeneous and heterogeneous elements.
+
+
+
+
+Ques 3: What are fail-fast and fail-safe collection iterations
+
+
+-The Fail Fast iterators immediately throw ConcurrentModificationException in case of structural modification of the collection. 
+Structural modification means adding, removing, updating the value of an element in a data collection while another 
+thread is iterating over that collection. Some examples of Fail Fast iterator are iterator on ArrayList, HashMap collection classes.
+
+The Fail Safe iterators are just opposite to Fail Fast iterators; unlike them, A fail-safe iterator does not throw any exceptions unless it
+can handle if the collection is modified during the iteration process. This can be done because they operate on the copy of the collection
+ object instead of the original object. 
+
+
+Ques 4: Difference between Iterator and ListIterator
+
+
+-Iterator
+It helps traverse through a map, list and a set.
+It traverses through elements present in Collection.
+This iteration can be done in the forward direction only
+The iterator can’t modify or replace elements of a Collection..
+Methods of the iterator are ‘next()’, ‘remove()’, ‘hasNext()’.
+
+ListIterator
+It helps traverse through a list only.
+The traversal can be done in both forward and backward directions.
+Some of the methods of listiterator are ‘nextIndex()’, ‘previousIndex()’, ‘previous()’, ‘next()’.
+The elements can be modified or replaced.
+
+
+
+Ques 5: Explain the real situation use of HashMap, HashSet and LinkedList collections
+
+
+-The LinkedHashMap is just like HashMap with an additional feature of maintaining an order of elements inserted into it.
+ HashMap provided the advantage of quick insertion, search, and deletion but it never maintained the
+ track and order of insertion which the LinkedHashMap provides where the elements can be accessed in their insertion order. 

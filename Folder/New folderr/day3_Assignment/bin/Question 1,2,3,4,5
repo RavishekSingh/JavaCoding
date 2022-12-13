@@ -1,0 +1,123 @@
+Ques 1: Can we have a non-abstract method inside an interface?
+
+
+-Yes, from JDK 8 onwards you can specify non-abstract methods in form of 
+ default and static methods on the interface.
+
+
+public interface Interface{
+
+  default void myFunction(){
+    System.out.println("non-abstract method")
+  };
+
+}
+
+
+
+
+Ques 2: Implement 2 interfaces in a single class having
+same default methods and observe the catch there?
+
+
+-
+public interface Intf1 {
+  
+	public void myFunction();
+}
+
+public interface Intf2 {
+
+	public void myFunction();
+}
+
+public class Class1 implements Intf1,Intf2 {
+
+	@Override
+	public void myFunction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+
+
+
+Ques 3: Observe the following code and answer
+
+
+// Shape.java
+public class Shape {
+protected void display() {
+System.out.println("Display-base");
+}
+}
+// Circle.java
+public class Circle extends Shape { <
+< access - modifier > void display() {
+System.out.println("Display-derived");
+}
+}
+
+
+
+-Output: public
+
+
+
+
+
+
+Ques 4: Observe and answer..
+
+abstract class Car {
+static {
+System.out.print("1");
+}
+public Car(String name) {
+super();
+System.out.print("2");
+}
+{
+System.out.print("3");
+}
+}
+public class BlueCar extends Car {
+{
+System.out.print("4");
+}
+public BlueCar() {
+super("blue");
+System.out.print("5");
+}
+public static void main(String[] gears) {
+new BlueCar();
+}
+}
+
+
+-Output: 13245
+
+
+
+
+
+Ques 5: Observe the following code snippet
+
+class Math {
+public final double secret = 2;
+}
+class ComplexMath extends Math {
+public final double secret = 4;
+}
+public class InfiniteMath extends ComplexMath {
+public final double secret = 8;
+public static void main(String[] numbers) {
+Math math = new InfiniteMath();
+System.out.print(math.secret);
+}
+}
+
+-Output:2.0
